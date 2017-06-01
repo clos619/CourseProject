@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package FightClub;
-import java.util.ArrayList; //class import for array list
 
 /**
  *
@@ -48,13 +47,15 @@ public class GUI extends javax.swing.JPanel {
     //David
     public void createPlayers()
     {
+        
         //create array list
-        ArrayList<Players> playerArray = new ArrayList<>();
+        Players[] playerArray = new Players[4];
+
         //add objects to array list
-        playerArray.add(new Players(txtPlayer1.getText()));
-        playerArray.add(new Players(txtPlayer2.getText()));
-        playerArray.add(new Players(txtPlayer3.getText()));
-        playerArray.add(new Players(txtPlayer4.getText()));
+        playerArray[0] = new Players(txtPlayer1.getText());
+        playerArray[1] = new Players(txtPlayer2.getText());
+        playerArray[2] = new Players(txtPlayer3.getText());
+        playerArray[3] = new Players(txtPlayer4.getText());
                 
     }
     //Carlos
