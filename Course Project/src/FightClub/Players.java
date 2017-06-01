@@ -15,7 +15,7 @@ public class Players {
     private int health;
     
     public Players(){
-        name="bad Usesr";
+        name="bad User";
         health=-1;
     }
     public Players(String cName){
