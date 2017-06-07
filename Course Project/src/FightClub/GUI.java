@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package FightClub;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import java.util.Random;
+
 
 /**
  *
@@ -162,7 +166,61 @@ public class GUI extends javax.swing.JPanel {
     //Mark
     public void dmgRand()
     {
+         int health[] = new int[4];
+        int healthReduction[] = new int[4];
         
+        long seed = System.currentTimeMillis();
+        
+        health[0] = Integer.parseInt(txtPlayer1Health.getText());
+        health[1] = Integer.parseInt(txtPlayer2Health.getText());
+        health[2] = Integer.parseInt(txtPlayer3Health.getText());
+        health[3] = Integer.parseInt(txtPlayer4Health.getText());
+        
+        Random rand = new Random(seed);
+        
+        healthReduction[0] = rand.nextInt(20);
+        healthReduction[1] = rand.nextInt(20);
+        healthReduction[2] = rand.nextInt(20);
+        healthReduction[3] = rand.nextInt(20);
+        
+        for ( int i = 0 ; i < 4 ; i++ ) {
+            health[i] = Math.max( health[i] - healthReduction[i], 0 );
+        }
+        
+        txtPlayer1Health.setText(String.valueOf(health[0]));
+        txtPlayer2Health.setText(String.valueOf(health[1]));
+        txtPlayer3Health.setText(String.valueOf(health[2]));
+        txtPlayer4Health.setText(String.valueOf(health[3]));
+        
+        if ( health[0] == 0 ) {
+            txtPlayer1Health.setEnabled(false);
+            txtPlayer1.setEnabled(false);
+            areaOutput.append("Player 1 is dead \n");
+
+        }
+        
+        if ( health[1] == 0 ) {
+            txtPlayer2Health.setEnabled(false);
+            txtPlayer2.setEnabled(false);
+            areaOutput.append("Player 2 is dead \n");
+
+        }
+        
+        if ( health[2] == 0 ) {
+            txtPlayer3Health.setEnabled(false);
+            txtPlayer3.setEnabled(false);
+            areaOutput.append("Player 3 is dead \n");
+
+        }
+   
+        if ( health[3] == 0 ) {
+            txtPlayer4Health.setEnabled(false);
+            txtPlayer4.setEnabled(false);
+            areaOutput.append("Player 4 is dead \n");
+
+        }
+        
+              
     }
     //David
     public void createPlayers()
@@ -183,10 +241,14 @@ public class GUI extends javax.swing.JPanel {
     {
         
     }
-    //Mark
+    //David
     public void winner()
     {
-        
+
+        JFrame frame = new JFrame("The Winner is...");
+        JOptionPane.showMessageDialog(frame, "wins!","WINNER WINNER WINNER!!!!",
+                JOptionPane.INFORMATION_MESSAGE);
+
     }
     //Carlos
     public void loser()
