@@ -255,6 +255,12 @@ public class GUI extends javax.swing.JPanel {
     {
         
     }
+    
+        public static void Main(String[] arg)
+    {
+        new initComponents();
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaOutput;
