@@ -314,7 +314,7 @@ public class GUI extends javax.swing.JPanel {
     //Carlos
     public void loser()
     {
-        
+        //text
     }
     
     public static void main(String[] args)
