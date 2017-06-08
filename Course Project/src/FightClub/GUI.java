@@ -252,10 +252,10 @@ public class GUI extends javax.swing.JPanel {
         
         
         
-        if(btnNextRound.isSelected()){
+        
               for (int i = 0; i < 5; i++) {
+            areaOutput.append(String.valueOf(playerArray[i].getName()));
             areaOutput.append(String.valueOf(playerArray[i].getHealth()));
-            
         
           
             
@@ -267,7 +267,7 @@ public class GUI extends javax.swing.JPanel {
             areaOutput.append(String.valueOf(playerArray[i]));
         }
     }
-        }  
+        
     }
     //David
     public void winner()
