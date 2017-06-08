@@ -15,6 +15,19 @@ import java.util.Random;
  */
 public class GUI extends javax.swing.JPanel {
 
+    Players[] playerArray = new Players[4];
+    
+        int health = 100;
+    GUI g = new GUI();
+    public int gethealth(){
+        return health;
+    }
+
+    public void sethealth(int health){
+        health=100;
+        
+    }
+
     /**
      * Creates new form GUI
      */
@@ -227,7 +240,7 @@ public class GUI extends javax.swing.JPanel {
     {
         
         //create array list
-        Players[] playerArray = new Players[4];
+        
 
         //add objects to array list
         playerArray[0] = new Players(txtPlayer1.getText());
@@ -239,8 +252,29 @@ public class GUI extends javax.swing.JPanel {
     //Carlos
     public void healthCheck()
     {
+       
+
+        //add objects to array list
+        playerArray[0] = new Players(txtPlayer1.getText());
+        playerArray[1] = new Players(txtPlayer2.getText());
+        playerArray[2] = new Players(txtPlayer3.getText());
+        playerArray[3] = new Players(txtPlayer4.getText());
+        playerArray[1].sethealth();
         
+        if(btnNextRound.isSelected()){
+              for (int i = 0; i < 5; i++) {
+            System.out.println(playerArray[i]);
+            
+        }
+            System.out.println();
+            System.out.println(g.gethealth());
+        }
+        if(health<=0){
+            
+            System.out.println("You are dead");
+        }
     }
+
     //David
     public void winner()
     {
