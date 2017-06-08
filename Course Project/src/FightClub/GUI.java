@@ -9,16 +9,13 @@ import javax.swing.JFrame;
 import java.util.Random;
 
 
-/**
- *
- * @author leggc
- */
+
 public class GUI extends javax.swing.JPanel {
 
     Players[] playerArray = new Players[4];
     
         
-    GUI g = new GUI();
+    //GUI g = new GUI();
     
 
    
@@ -323,7 +320,8 @@ public class GUI extends javax.swing.JPanel {
     public static void main(String[] args)
     {
         //Start Game
-        new GUI();
+        //new GUI();
+        GUI g = new GUI();
     }
 
 
