@@ -174,7 +174,25 @@ public class GUI extends javax.swing.JPanel {
     //Mark
     public void dmgRand()
     {
-         int health[] = new int[4];
+        for (int i = 0; i <= 4 ; i++)
+        {
+            Random rand = new Random();
+            int  n = rand.nextInt(20) + 1;
+            int PlayerHealth = playerArray[i].getHealth();
+            playerArray[i].setHealth(PlayerHealth-n);
+
+            
+        }
+        txtPlayer1Health.setText(String.valueOf(playerArray[0].getHealth()));
+        txtPlayer2Health.setText(String.valueOf(playerArray[1].getHealth()));
+        txtPlayer3Health.setText(String.valueOf(playerArray[2].getHealth()));
+        txtPlayer4Health.setText(String.valueOf(playerArray[3].getHealth()));
+        
+        
+        healthCheck();
+        
+        /*
+        int health[] = new int[4];
         int healthReduction[] = new int[4];
         
         long seed = System.currentTimeMillis();
@@ -228,7 +246,7 @@ public class GUI extends javax.swing.JPanel {
 
         }
         
-              
+             */
     }
     //David
     public void createPlayers()
@@ -286,7 +304,7 @@ public class GUI extends javax.swing.JPanel {
     
         public static void Main(String[] arg)
     {
-        new initComponents();
+        new GUI();
     }
 
 
