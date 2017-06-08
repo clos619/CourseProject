@@ -69,9 +69,18 @@ public class GUI extends javax.swing.JPanel {
             }
         });
 
+        areaOutput.setEditable(false);
         areaOutput.setColumns(20);
         areaOutput.setRows(5);
         jScrollPane1.setViewportView(areaOutput);
+
+        txtPlayer1Health.setEditable(false);
+
+        txtPlayer2Health.setEditable(false);
+
+        txtPlayer3Health.setEditable(false);
+
+        txtPlayer4Health.setEditable(false);
 
         jLabel1.setText("Current Health");
 
@@ -311,8 +320,9 @@ public class GUI extends javax.swing.JPanel {
         
     }
     
-        public static void Main(String[] arg)
+    public static void main(String[] args)
     {
+        //Start Game
         new GUI();
     }
 
