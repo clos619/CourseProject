@@ -282,6 +282,11 @@ public class GUI extends javax.swing.JPanel {
             
             areaOutput.append(String.valueOf("You are dead"));
             playerArray[i] = null;
+            areaOutput.append(String.valueOf(playerArray[i].getName()));
+                if(playerArray[i]==null){
+                    continue;
+                }
+            
             areaOutput.append(String.valueOf(playerArray[i]));
         }
     }
