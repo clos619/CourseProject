@@ -176,19 +176,23 @@ public class GUI extends javax.swing.JPanel {
     {
         for (int i = 0; i <= 4 ; i++)
         {
+            //Generate Random number
             Random rand = new Random();
             int  n = rand.nextInt(20) + 1;
+            //Get the health of player
             int PlayerHealth = playerArray[i].getHealth();
+            //set new health of player as current health minus random number
             playerArray[i].setHealth(PlayerHealth-n);
 
             
         }
+        //Update each Health field on GUI
         txtPlayer1Health.setText(String.valueOf(playerArray[0].getHealth()));
         txtPlayer2Health.setText(String.valueOf(playerArray[1].getHealth()));
         txtPlayer3Health.setText(String.valueOf(playerArray[2].getHealth()));
         txtPlayer4Health.setText(String.valueOf(playerArray[3].getHealth()));
         
-        
+        //Pass control to next method
         healthCheck();
         
         /*
