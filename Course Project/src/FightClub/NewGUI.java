@@ -353,9 +353,7 @@ public class NewGUI extends javax.swing.JFrame {
     {
 
          JFrame frame = new JFrame();
-        /*JOptionPane.showMessageDialog(frame, "wins!","WINNER WINNER WINNER!!!!",
-                JOptionPane.INFORMATION_MESSAGE);
-*/
+        
         String iName = "jimbo";
         if (JOptionPane.showConfirmDialog(null,"\t         " +
                 iName + " WINS!!! \n" + "Would you like to play again?" , "WINNER",
