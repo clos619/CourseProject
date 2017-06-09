@@ -349,12 +349,24 @@ public class NewGUI extends javax.swing.JFrame {
         
     }
     //David
-    public void winner()
+    public void winner(String name)
     {
 
-        JFrame frame = new JFrame("The Winner is...");
-        JOptionPane.showMessageDialog(frame, "wins!","WINNER WINNER WINNER!!!!",
+         JFrame frame = new JFrame();
+        /*JOptionPane.showMessageDialog(frame, "wins!","WINNER WINNER WINNER!!!!",
                 JOptionPane.INFORMATION_MESSAGE);
+*/
+        String iName = "jimbo";
+        if (JOptionPane.showConfirmDialog(null,"\t         " +
+                iName + " WINS!!! \n" + "Would you like to play again?" , "WINNER",
+        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
+        {
+            // yes option
+        } 
+        else 
+        {
+            // no option
+        }
 
     }
     //Carlos
