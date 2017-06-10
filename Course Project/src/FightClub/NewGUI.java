@@ -48,7 +48,8 @@ public class NewGUI extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        menuNewGame = new javax.swing.JMenuItem();
+        menuExit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,10 +161,24 @@ public class NewGUI extends javax.swing.JFrame {
         );
 
         jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuNewGame.setText("New Game");
+        menuNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewGameActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuNewGame);
+
+        menuExit.setText("Exit");
+        menuExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(menuExit);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -192,6 +207,28 @@ public class NewGUI extends javax.swing.JFrame {
     private void btnNextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextRoundActionPerformed
         dmgRand();
     }//GEN-LAST:event_btnNextRoundActionPerformed
+
+    private void menuNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewGameActionPerformed
+        //Clear Player array
+        for (int i =0; i<3;i++)
+        {
+            playerArray[i] = null;
+        }
+        
+        //Clear Name fields
+        txtPlayer1.setText("");
+        txtPlayer2.setText("");
+        txtPlayer3.setText("");
+        txtPlayer4.setText("");
+        
+        //Clear Text Area
+        areaOutput.setText("");
+    }//GEN-LAST:event_menuNewGameActionPerformed
+
+    private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
+        //Exit the program
+        System.exit(0);
+    }//GEN-LAST:event_menuExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -381,10 +418,11 @@ public class NewGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem menuExit;
+    private javax.swing.JMenuItem menuNewGame;
     private javax.swing.JTextField txtPlayer1;
     private javax.swing.JTextField txtPlayer1Health;
     private javax.swing.JTextField txtPlayer2;
