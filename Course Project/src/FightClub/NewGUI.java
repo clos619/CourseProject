@@ -397,10 +397,24 @@ public class NewGUI extends javax.swing.JFrame {
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         {
             // yes option
+            
+             for (int i =0; i<3;i++)
+            {
+            playerArray[i] = null;
+            }
+        
+            //Clear Name fields
+            txtPlayer1.setText("");
+            txtPlayer2.setText("");
+            txtPlayer3.setText("");
+            txtPlayer4.setText("");
+
+            //Clear Text Area
+            areaOutput.setText("");
         } 
         else 
         {
-            // no option
+            System.exit(0);
         }
 
     }
