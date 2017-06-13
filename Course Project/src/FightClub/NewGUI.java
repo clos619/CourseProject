@@ -439,6 +439,14 @@ public class NewGUI extends javax.swing.JFrame {
     //David
     public void winner(String name)
     {
+        for (int i = 0; i <= 3; i++) {
+            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
+                
+                
+            }
+        }
+            
+       
 
          JFrame frame = new JFrame();
         
