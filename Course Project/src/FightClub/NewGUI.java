@@ -439,16 +439,13 @@ public class NewGUI extends javax.swing.JFrame {
     //David
     public void winner(String name)
     {
+        //loop that goes through each element
         for (int i = 0; i <= 3; i++) {
-            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
+            //if 3 elements are null and one is not then the condition is true and
+            //code is executed
+            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]!=null){
                 
-                
-            }
-        }
-            
-       
-
-         JFrame frame = new JFrame();
+                 JFrame frame = new JFrame();
         
         String iName = "jimbo";
         if (JOptionPane.showConfirmDialog(null,"\t         " +
@@ -457,7 +454,7 @@ public class NewGUI extends javax.swing.JFrame {
         {
             // yes option
             
-             for (int i =0; i<3;i++)
+             
             {
             playerArray[i] = null;
             }
@@ -475,12 +472,27 @@ public class NewGUI extends javax.swing.JFrame {
         {
             System.exit(0);
         }
+            }
+        }
+            
+       
+
+        
 
     }
     //Carlos
     public void loser()
     {
-        //text
+        
+        for (int i = 0; i <= 3; i++) {
+            
+           if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
+               
+               JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
+           }
+              
+        }
+        
     }
 
 
