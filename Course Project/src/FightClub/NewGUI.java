@@ -46,10 +46,13 @@ public class NewGUI extends javax.swing.JFrame {
         txtPlayer4Health = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnHelp = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         menuNewGame = new javax.swing.JMenuItem();
         menuExit = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        menuAbout = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +93,13 @@ public class NewGUI extends javax.swing.JFrame {
 
         jLabel2.setText("Players");
 
+        btnHelp.setText("?");
+        btnHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -117,8 +127,12 @@ public class NewGUI extends javax.swing.JFrame {
                                     .addComponent(txtPlayer1Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPlayer2Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPlayer3Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap(327, Short.MAX_VALUE))))
                     .addComponent(jScrollPane1)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHelp)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -130,7 +144,9 @@ public class NewGUI extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addContainerGap()
+                .addComponent(btnHelp)
+                .addGap(2, 2, 2)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPlayer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPlayer1Health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -180,6 +196,18 @@ public class NewGUI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Help");
+
+        menuAbout.setText("About Fight Club");
+        menuAbout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuAboutActionPerformed(evt);
+            }
+        });
+        jMenu2.add(menuAbout);
+
+        jMenuBar1.add(jMenu2);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -221,6 +249,12 @@ public class NewGUI extends javax.swing.JFrame {
         txtPlayer3.setText("");
         txtPlayer4.setText("");
         
+        //Clear Health Fields
+        txtPlayer1Health.setText("");
+        txtPlayer2Health.setText("");
+        txtPlayer3Health.setText("");
+        txtPlayer4Health.setText("");
+        
         //Clear Text Area
         areaOutput.setText("");
     }//GEN-LAST:event_menuNewGameActionPerformed
@@ -229,6 +263,14 @@ public class NewGUI extends javax.swing.JFrame {
         //Exit the program
         System.exit(0);
     }//GEN-LAST:event_menuExitActionPerformed
+
+    private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
+        //Ref User manual as a JOptionPane popup.
+    }//GEN-LAST:event_btnHelpActionPerformed
+
+    private void menuAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutActionPerformed
+        //Ref User manual as a JOptionPane popup.
+    }//GEN-LAST:event_menuAboutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -268,6 +310,7 @@ public class NewGUI extends javax.swing.JFrame {
     //Mark
     public void dmgRand()
     {
+        //Gonna need to test if dead(null) here as well... causing crash
         for (int i = 0; i <= 3 ; i++)
         {
             //Generate Random number
@@ -358,6 +401,9 @@ public class NewGUI extends javax.swing.JFrame {
         playerArray[1] = new Players(txtPlayer2.getText());
         playerArray[2] = new Players(txtPlayer3.getText());
         playerArray[3] = new Players(txtPlayer4.getText());
+        
+        //Begin Fight
+        dmgRand();
                 
     }
     //Carlos
@@ -427,14 +473,17 @@ public class NewGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaOutput;
+    private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnNextRound;
     private javax.swing.JButton btnStart;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JMenuItem menuAbout;
     private javax.swing.JMenuItem menuExit;
     private javax.swing.JMenuItem menuNewGame;
     private javax.swing.JTextField txtPlayer1;
