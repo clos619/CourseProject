@@ -489,6 +489,7 @@ public class NewGUI extends javax.swing.JFrame {
            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
                
                JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
+               System.exit(0);
            }
               
         }
