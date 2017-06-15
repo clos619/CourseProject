@@ -4,9 +4,13 @@
  * 
  */
 package FightClub;
+import java.nio.*;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import java.util.Random;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class NewGUI extends javax.swing.JFrame {
         Players[] playerArray = new Players[4];
@@ -254,11 +258,23 @@ public class NewGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_menuExitActionPerformed
 
     private void btnHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpActionPerformed
-        //Ref User manual as a JOptionPane popup.
+        
+            try {
+                getHelp();
+            } catch (IOException ex) {
+                Logger.getLogger(NewGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
     }//GEN-LAST:event_btnHelpActionPerformed
 
     private void menuAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAboutActionPerformed
-        //Ref User manual as a JOptionPane popup.
+        
+        try {
+                getHelp();
+            } catch (IOException ex) {
+                Logger.getLogger(NewGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
     }//GEN-LAST:event_menuAboutActionPerformed
 
     /**
@@ -495,6 +511,21 @@ public class NewGUI extends javax.swing.JFrame {
               
         
         
+    }
+    
+    public void getHelp() throws FileNotFoundException, IOException
+    {
+        InputStream is = new FileInputStream("manual.txt");
+        BufferedReader buf = new BufferedReader(new InputStreamReader(is));
+        
+        String line = buf.readLine();
+        StringBuilder sb = new StringBuilder();
+        
+        while(line != null){
+            sb.append(line).append("\n");
+            line = buf.readLine();
+        }
+         JOptionPane.showMessageDialog(null, sb);
     }
 
 
