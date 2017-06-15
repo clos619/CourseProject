@@ -230,6 +230,7 @@ public class NewGUI extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         createPlayers();
+        btnStart.setEnabled(false);
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnNextRoundActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextRoundActionPerformed
@@ -257,6 +258,7 @@ public class NewGUI extends javax.swing.JFrame {
         
         //Clear Text Area
         areaOutput.setText("");
+        btnStart.setEnabled(true);
     }//GEN-LAST:event_menuNewGameActionPerformed
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
@@ -313,13 +315,20 @@ public class NewGUI extends javax.swing.JFrame {
         //Gonna need to test if dead(null) here as well... causing crash
         for (int i = 0; i <= 3 ; i++)
         {
-            //Generate Random number
-            Random rand = new Random();
-            int  n = rand.nextInt(20) + 1;
-            //Get the health of player
-            int PlayerHealth = playerArray[i].getHealth();
-            //set new health of player as current health minus random number
-            playerArray[i].setHealth(PlayerHealth-n);
+            if(playerArray[i]==null)
+            {
+                continue;
+            }
+            else
+            {
+                //Generate Random number
+                Random rand = new Random();
+                int  n = rand.nextInt(20) + 1;
+                //Get the health of player
+                int PlayerHealth = playerArray[i].getHealth();
+                //set new health of player as current health minus random number
+                playerArray[i].setHealth(PlayerHealth-n);
+            }
 
             
         }
