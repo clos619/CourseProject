@@ -424,19 +424,19 @@ public class NewGUI extends javax.swing.JFrame {
             
            
         }
-         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
+         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==false&&playerArray[2].getDead()==false&&playerArray[3].getDead()==false){
                 loser();
             }
-         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==false&&playerArray[2].getDead()==false&&playerArray[3].getDead()==false){
+         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
                 winner(playerArray[0].getName());
             }
-         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==true&&playerArray[2].getDead()==false&&playerArray[3].getDead()==false){
+         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==false&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
                 winner(playerArray[1].getName());
             }
-         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==false&&playerArray[2].getDead()==true&&playerArray[3].getDead()==false){
+         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==false&&playerArray[3].getDead()==true){
                 winner(playerArray[2].getName());
             }
-         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==false&&playerArray[2].getDead()==false&&playerArray[3].getDead()==true){
+         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==false){
                 winner(playerArray[3].getName());
             }
     }
@@ -490,7 +490,7 @@ public class NewGUI extends javax.swing.JFrame {
     public void loser()
     {
                JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
-               System.exit(0);
+               setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
               
         
