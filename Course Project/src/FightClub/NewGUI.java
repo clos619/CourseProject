@@ -409,29 +409,36 @@ public class NewGUI extends javax.swing.JFrame {
         //checks if any element is null
         //if an element is null it continues to the next element
        for (int i = 0; i <= 3; i++) {
-            if(playerArray[i]==null)
-            {
-                continue;
-            }
-            else 
-            {    //or it prints the element name and health of the elements that are not null
-                areaOutput.append(String.valueOf(playerArray[i].getName()));
-                areaOutput.append(String.valueOf(playerArray[i].getHealth()));
-            }
+         
+           
        
             //this checks if an elements health is less than or equal to 0
         if(playerArray[i].getHealth()<=0)
         {
+            playerArray[i].setDead(true);
             //if an elements health is less than or equal to 0 it prints out you are dead
             //and then it prints out the elements name and sets it to null
             areaOutput.append(String.valueOf("You are dead"));
             areaOutput.append(String.valueOf(playerArray[i].getName()));
-            playerArray[i] = null;
             
-            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
+            
+           
+        }
+         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
                 loser();
             }
-        }
+         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==false&&playerArray[2].getDead()==false&&playerArray[3].getDead()==false){
+                winner(playerArray[0].getName());
+            }
+         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==true&&playerArray[2].getDead()==false&&playerArray[3].getDead()==false){
+                winner(playerArray[1].getName());
+            }
+         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==false&&playerArray[2].getDead()==true&&playerArray[3].getDead()==false){
+                winner(playerArray[2].getName());
+            }
+         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==false&&playerArray[2].getDead()==false&&playerArray[3].getDead()==true){
+                winner(playerArray[3].getName());
+            }
     }
         
     }
@@ -442,11 +449,11 @@ public class NewGUI extends javax.swing.JFrame {
         for (int i = 0; i <= 3; i++) {
             //if 3 elements are null and one is not then the condition is true and
             //code is executed
-            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]!=null){
+          //  if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]!=null){
                 
                  JFrame frame = new JFrame();
         
-        String iName = "jimbo";
+        String iName=name;
         if (JOptionPane.showConfirmDialog(null,"\t         " +
                 iName + " WINS!!! \n" + "Would you like to play again?" , "WINNER",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
@@ -471,7 +478,7 @@ public class NewGUI extends javax.swing.JFrame {
         {
             System.exit(0);
         }
-            }
+            //}
         }
             
        
