@@ -56,12 +56,6 @@ public class NewGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        txtPlayer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPlayer1ActionPerformed(evt);
-            }
-        });
-
         btnStart.setText("Start Fight");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,12 +218,10 @@ public class NewGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPlayer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlayer1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPlayer1ActionPerformed
-
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         createPlayers();
+        
+        //Disable Start fight button
         btnStart.setEnabled(false);
     }//GEN-LAST:event_btnStartActionPerformed
 
@@ -258,6 +250,8 @@ public class NewGUI extends javax.swing.JFrame {
         
         //Clear Text Area
         areaOutput.setText("");
+        
+        //Enable Start fight button
         btnStart.setEnabled(true);
     }//GEN-LAST:event_menuNewGameActionPerformed
 
