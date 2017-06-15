@@ -424,7 +424,7 @@ public class NewGUI extends javax.swing.JFrame {
             
            
         }
-         if(playerArray[0].getDead()==false&&playerArray[1].getDead()==false&&playerArray[2].getDead()==false&&playerArray[3].getDead()==false){
+         if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
                 loser();
             }
          if(playerArray[0].getDead()==false&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
