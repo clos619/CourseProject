@@ -428,6 +428,9 @@ public class NewGUI extends javax.swing.JFrame {
             areaOutput.append(String.valueOf(playerArray[i].getName()));
             playerArray[i] = null;
             
+            if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
+                loser();
+            }
         }
     }
         
@@ -479,16 +482,11 @@ public class NewGUI extends javax.swing.JFrame {
     //Carlos
     public void loser()
     {
-        
-        for (int i = 0; i <= 3; i++) {
-            
-           if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null){
-               
                JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
                System.exit(0);
-           }
+           
               
-        }
+        
         
     }
 
