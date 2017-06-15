@@ -5,23 +5,22 @@
  */
 package FightClub;
 
-/**
- *
- * @author leggc
- */
 public class Players {
     
     private String name;
     private int health;
+    private boolean dead;
     
     public Players(){
         name="bad User";
         health=-1;
+        dead = true;
     }
     public Players(String cName){
         
         name=cName;
         health=100;
+        dead=false;
         
     }
     
@@ -29,7 +28,8 @@ public class Players {
     public void setHealth(int cHealth){health = cHealth;}
     public String getName(){return name;}
     public int getHealth(){return health;}
-    
+    public void setDead(boolean cdead){dead=cdead;}    
+    public boolean getDead(){return dead;}
     
     
 }
