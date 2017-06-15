@@ -1,0 +1,35 @@
+Welcome to Fight Club!
+
+Game Description: 
+Fight Club is a game application which will simulate a fight of a 4 players entered by one player (clicker).
+Each character starts with a health bar of 100%. Upon clicking the “fight” button, the percentage of each character’s health will be reduced based on the range of characters by using a random generator.
+The amount of health after the previous round will be used in the start of the next one. This process continues and goes through multiple rounds until one character is left.
+A player with a health of "0" is dead and can't participate on the fights. The last player with sufficient health other than 0 is the winner of the game. 
+
+How to start the game:
+
+Stept 1 : Click the Run Tab on NetBeans and click on "Run Project". 
+	  (You can also click on the play button shown on the picture below to run the program. 
+
+Result:  The window of the Game will open.
+
+Step 2 : Fill in the names of the 4 characters on the blank textfield located under "Players".
+Hint: (The Game will not start unless 4 players have been entered).
+
+Step 3: Once all characters have been entered, click the "Start Fight" button.
+Result: The program accepts the players entered and is ready to start the game.
+
+Step 4: Click "Next Round" to simulate the round.
+Result: All players' health will be reduced by a random number. 
+The health status of player is displayed on the text area located on the bottom of the program.
+
+Step 5: Repeat "Step 5" until one player or no player is left.
+(Hint: The last remaining player is the winner of the game. If no player is remaining, there is no winner).
+
+
+
+How to exit the game :
+
+Step 1  : Click on the "X" button located on the top right corner of the program.
+
+
