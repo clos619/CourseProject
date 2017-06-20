@@ -419,20 +419,25 @@ public class NewGUI extends javax.swing.JFrame {
         //goes through each element of the array
         //checks if any element is null
         //if an element is null it continues to the next element
-       for (int i = 0; i <= 3; i++) {
+       for (int i = 0; i <= 3; i++) 
+       {
          
+           if (playerArray[i].getDead())
+           {
+               continue;
+           }
            
        
             //this checks if an elements health is less than or equal to 0
-        if(playerArray[i].getHealth()<=0)
-        {
+           else if(playerArray[i].getHealth()<=0)
+            {
             playerArray[i].setDead(true);
             //if an elements health is less than or equal to 0 it prints out you are dead
             //and then it prints out the elements name and sets it to null
-            areaOutput.append(String.valueOf("\nYou are dead "));
-            areaOutput.append(String.valueOf(playerArray[i].getName()));
+            areaOutput.append(String.valueOf("You are dead "));
+            areaOutput.append(String.valueOf(playerArray[i].getName()+"\n"));
             
-        }
+            }
            
         }
          if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
@@ -502,9 +507,6 @@ public class NewGUI extends javax.swing.JFrame {
                JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
            
-              
-        
-        
     }
     
     public void getHelp() throws FileNotFoundException, IOException
