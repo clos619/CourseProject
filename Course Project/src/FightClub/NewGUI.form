@@ -97,11 +97,11 @@
                                       <Component id="txtPlayer4" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtPlayer4Health" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtPlayer1Health" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtPlayer2Health" min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="txtPlayer3Health" min="-2" pref="27" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtPlayer1Health" pref="42" max="32767" attributes="0"/>
+                                      <Component id="txtPlayer2Health" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPlayer3Health" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtPlayer4Health" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">

@@ -111,11 +111,11 @@ public class NewGUI extends javax.swing.JFrame {
                                     .addComponent(txtPlayer3)
                                     .addComponent(txtPlayer4))
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtPlayer4Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPlayer1Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPlayer2Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPlayer3Health, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtPlayer1Health, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                    .addComponent(txtPlayer2Health)
+                                    .addComponent(txtPlayer3Health)
+                                    .addComponent(txtPlayer4Health)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(53, 53, 53)
@@ -227,11 +227,6 @@ public class NewGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNextRoundActionPerformed
 
     private void menuNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewGameActionPerformed
-        //Clear Player array
-        for (int i =0; i<3;i++)
-        {
-            playerArray[i] = null;
-        }
         
         //Clear Name fields
         txtPlayer1.setText("");
@@ -318,7 +313,7 @@ public class NewGUI extends javax.swing.JFrame {
         //Gonna need to test if dead(null) here as well... causing crash
         for (int i = 0; i <= 3 ; i++)
         {
-            if(playerArray[i]==null)
+            if(playerArray[i].getDead())
             {
                 continue;
             }
@@ -434,10 +429,10 @@ public class NewGUI extends javax.swing.JFrame {
             playerArray[i].setDead(true);
             //if an elements health is less than or equal to 0 it prints out you are dead
             //and then it prints out the elements name and sets it to null
-            areaOutput.append(String.valueOf("You are dead"));
+            areaOutput.append(String.valueOf("\nYou are dead "));
             areaOutput.append(String.valueOf(playerArray[i].getName()));
             
-            
+        }
            
         }
          if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
@@ -455,19 +450,19 @@ public class NewGUI extends javax.swing.JFrame {
          if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==false){
                 winner(playerArray[3].getName());
             }
-    }
+    
         
     }
     //David
     public void winner(String name)
     {
         //loop that goes through each element
-        for (int i = 0; i <= 3; i++) {
+        
             //if 3 elements are null and one is not then the condition is true and
             //code is executed
           //  if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]!=null){
                 
-                 JFrame frame = new JFrame();
+                 //JFrame frame = new JFrame();
         
         String iName=name;
         if (JOptionPane.showConfirmDialog(null,"\t         " +
@@ -475,31 +470,30 @@ public class NewGUI extends javax.swing.JFrame {
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         {
             // yes option
-            
-             
-            {
-            playerArray[i] = null;
-            }
         
             //Clear Name fields
             txtPlayer1.setText("");
             txtPlayer2.setText("");
             txtPlayer3.setText("");
             txtPlayer4.setText("");
+            
+            //Clear Health Fields
+            txtPlayer1Health.setText("");
+            txtPlayer2Health.setText("");
+            txtPlayer3Health.setText("");
+            txtPlayer4Health.setText("");
 
             //Clear Text Area
             areaOutput.setText("");
+            //Enable Start fight button
+            btnStart.setEnabled(true);
+
         } 
         else 
         {
+            //No Option
             System.exit(0);
         }
-            //}
-        }
-            
-       
-
-        
 
     }
     //Carlos
