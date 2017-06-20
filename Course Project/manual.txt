@@ -8,28 +8,37 @@ A player with a health of "0" is dead and can't participate on the fights. The l
 
 How to start the game:
 
-Stept 1 : Click the Run Tab on NetBeans and click on "Run Project". 
-	  (You can also click on the play button shown on the picture below to run the program. 
 
-Result:  The window of the Game will open.
-
-Step 2 : Fill in the names of the 4 characters on the blank textfield located under "Players".
+Step 1 : Fill in the names of the 4 characters on the blank textfield located under "Players".
 Hint: (The Game will not start unless 4 players have been entered).
 
-Step 3: Once all characters have been entered, click the "Start Fight" button.
+Step 2: Once all characters have been entered, click the "Start Fight" button.
 Result: The program accepts the players entered and is ready to start the game.
 
-Step 4: Click "Next Round" to simulate the round.
+Step 3: Click "Next Round" to simulate the round.
 Result: All players' health will be reduced by a random number. 
 The health status of player is displayed on the text area located on the bottom of the program.
 
-Step 5: Repeat "Step 5" until one player or no player is left.
+Step 4: Repeat "Step 3" until one player or no player is left.
 (Hint: The last remaining player is the winner of the game. If no player is remaining, there is no winner).
+
+How to start a new game:
+
+1) Click on the tab "File" and click on "New Game".
+
+or
+ 
+2) Wait until the end of game.If there's a winner or loser, a window will populate and ask the user to play again.
+ Click "Yes".  
 
 
 
 How to exit the game :
 
-Step 1  : Click on the "X" button located on the top right corner of the program.
+There are two ways exiting the game :
+
+1) Click on the "X" button located on the top right corner of the program.
+2) Click on the tab "File" and click on "Exit".
+
 
 
