@@ -4,7 +4,7 @@
  * 
  */
 package FightClub;
-import java.nio.*;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import java.util.Random;
@@ -245,6 +245,18 @@ public class NewGUI extends javax.swing.JFrame {
         
         //Enable Start fight button
         btnStart.setEnabled(true);
+        
+        //Enable Player name fields
+        txtPlayer1.setEditable(true);
+        txtPlayer2.setEditable(true);
+        txtPlayer3.setEditable(true);
+        txtPlayer4.setEditable(true);
+        
+        //Reset health Color
+        txtPlayer1Health.setBackground(Color.white);
+        txtPlayer2Health.setBackground(Color.white);
+        txtPlayer3Health.setBackground(Color.white);
+        txtPlayer4Health.setBackground(Color.white);
     }//GEN-LAST:event_menuNewGameActionPerformed
 
     private void menuExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExitActionPerformed
@@ -306,29 +318,23 @@ public class NewGUI extends javax.swing.JFrame {
             }
         });
     }
-
     //Mark
     public void dmgRand()
     {
         //Gonna need to test if dead(null) here as well... causing crash
         for (int i = 0; i <= 3 ; i++)
         {
-            if(playerArray[i].getDead())
-            {
-                continue;
-            }
+            if(playerArray[i].getDead()){}
             else
             {
                 //Generate Random number
                 Random rand = new Random();
                 int  n = rand.nextInt(20) + 1;
-                //Get the health of player
-                int PlayerHealth = playerArray[i].getHealth();
+                
                 //set new health of player as current health minus random number
-                playerArray[i].setHealth(PlayerHealth-n);
+                playerArray[i].setHealth(playerArray[i].getHealth()-n);
             }
 
-            
         }
         //Update each Health field on GUI
         txtPlayer1Health.setText(String.valueOf(playerArray[0].getHealth()));
@@ -339,78 +345,27 @@ public class NewGUI extends javax.swing.JFrame {
         //Pass control to next method
         healthCheck();
         
-        /*
-        int health[] = new int[4];
-        int healthReduction[] = new int[4];
-        
-        long seed = System.currentTimeMillis();
-        
-        health[0] = Integer.parseInt(txtPlayer1Health.getText());
-        health[1] = Integer.parseInt(txtPlayer2Health.getText());
-        health[2] = Integer.parseInt(txtPlayer3Health.getText());
-        health[3] = Integer.parseInt(txtPlayer4Health.getText());
-        
-        Random rand = new Random(seed);
-        
-        healthReduction[0] = rand.nextInt(20);
-        healthReduction[1] = rand.nextInt(20);
-        healthReduction[2] = rand.nextInt(20);
-        healthReduction[3] = rand.nextInt(20);
-        
-        for ( int i = 0 ; i <= 3 ; i++ ) {
-            health[i] = Math.max( health[i] - healthReduction[i], 0 );
-        }
-        
-        txtPlayer1Health.setText(String.valueOf(health[0]));
-        txtPlayer2Health.setText(String.valueOf(health[1]));
-        txtPlayer3Health.setText(String.valueOf(health[2]));
-        txtPlayer4Health.setText(String.valueOf(health[3]));
-        
-        if ( health[0] == 0 ) {
-            txtPlayer1Health.setEnabled(false);
-            txtPlayer1.setEnabled(false);
-            areaOutput.append("Player 1 is dead \n");
-
-        }
-        
-        if ( health[1] == 0 ) {
-            txtPlayer2Health.setEnabled(false);
-            txtPlayer2.setEnabled(false);
-            areaOutput.append("Player 2 is dead \n");
-
-        }
-        
-        if ( health[2] == 0 ) {
-            txtPlayer3Health.setEnabled(false);
-            txtPlayer3.setEnabled(false);
-            areaOutput.append("Player 3 is dead \n");
-
-        }
-   
-        if ( health[3] == 0 ) {
-            txtPlayer4Health.setEnabled(false);
-            txtPlayer4.setEnabled(false);
-            areaOutput.append("Player 4 is dead \n");
-
-        }
-        
-             */
     }
     //David
     public void createPlayers()
     {
         
-        //create array list
-        
-
         //add objects to array list
         playerArray[0] = new Players(txtPlayer1.getText());
         playerArray[1] = new Players(txtPlayer2.getText());
         playerArray[2] = new Players(txtPlayer3.getText());
         playerArray[3] = new Players(txtPlayer4.getText());
         
-        //Begin Fight
-        dmgRand();
+        txtPlayer1.setEditable(false);
+        txtPlayer2.setEditable(false);
+        txtPlayer3.setEditable(false);
+        txtPlayer4.setEditable(false);
+        
+        //Display Starting Health
+        txtPlayer1Health.setText(String.valueOf(playerArray[0].getHealth()));
+        txtPlayer2Health.setText(String.valueOf(playerArray[1].getHealth()));
+        txtPlayer3Health.setText(String.valueOf(playerArray[2].getHealth()));
+        txtPlayer4Health.setText(String.valueOf(playerArray[3].getHealth()));
                 
     }
     //Carlos
@@ -439,6 +394,28 @@ public class NewGUI extends javax.swing.JFrame {
             
             }
            
+           //Set color of health box based on Health remaining
+           if(playerArray[0].getHealth()<=0){txtPlayer1Health.setBackground(Color.red);}
+           if(playerArray[1].getHealth()<=0){txtPlayer2Health.setBackground(Color.red);}
+           if(playerArray[2].getHealth()<=0){txtPlayer3Health.setBackground(Color.red);}
+           if(playerArray[3].getHealth()<=0){txtPlayer4Health.setBackground(Color.red);}
+           
+           if(playerArray[0].getHealth()>=1 && playerArray[0].getHealth()<=25){txtPlayer1Health.setBackground(Color.yellow);}
+           if(playerArray[1].getHealth()>=1 && playerArray[1].getHealth()<=25){txtPlayer2Health.setBackground(Color.yellow);}
+           if(playerArray[2].getHealth()>=1 && playerArray[2].getHealth()<=25){txtPlayer3Health.setBackground(Color.yellow);}
+           if(playerArray[3].getHealth()>=1 && playerArray[3].getHealth()<=25){txtPlayer4Health.setBackground(Color.yellow);}
+           
+           if(playerArray[0].getHealth()>=26 && playerArray[0].getHealth()<=50){txtPlayer1Health.setBackground(Color.blue);}
+           if(playerArray[1].getHealth()>=26 && playerArray[1].getHealth()<=50){txtPlayer2Health.setBackground(Color.blue);}
+           if(playerArray[2].getHealth()>=26 && playerArray[2].getHealth()<=50){txtPlayer3Health.setBackground(Color.blue);}
+           if(playerArray[3].getHealth()>=26 && playerArray[3].getHealth()<=50){txtPlayer4Health.setBackground(Color.blue);}
+           
+           if(playerArray[0].getHealth()>=51 && playerArray[0].getHealth()<=100){txtPlayer1Health.setBackground(Color.green);}
+           if(playerArray[1].getHealth()>=51 && playerArray[1].getHealth()<=100){txtPlayer2Health.setBackground(Color.green);}
+           if(playerArray[2].getHealth()>=51 && playerArray[2].getHealth()<=100){txtPlayer3Health.setBackground(Color.green);}
+           if(playerArray[3].getHealth()>=51 && playerArray[3].getHealth()<=100){txtPlayer4Health.setBackground(Color.green);}
+    
+           
         }
          if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==true){
                 loser();
@@ -455,7 +432,7 @@ public class NewGUI extends javax.swing.JFrame {
          if(playerArray[0].getDead()==true&&playerArray[1].getDead()==true&&playerArray[2].getDead()==true&&playerArray[3].getDead()==false){
                 winner(playerArray[3].getName());
             }
-    
+
         
     }
     //David
@@ -465,13 +442,9 @@ public class NewGUI extends javax.swing.JFrame {
         
             //if 3 elements are null and one is not then the condition is true and
             //code is executed
-          //  if(playerArray[i]==null&&playerArray[i]==null&&playerArray[i]==null&&playerArray[i]!=null){
-                
-                 //JFrame frame = new JFrame();
         
-        String iName=name;
         if (JOptionPane.showConfirmDialog(null,"\t         " +
-                iName + " WINS!!! \n" + "Would you like to play again?" , "WINNER",
+                name + " WINS!!! \n" + "Would you like to play again?" , "WINNER",
         JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) 
         {
             // yes option
@@ -490,8 +463,22 @@ public class NewGUI extends javax.swing.JFrame {
 
             //Clear Text Area
             areaOutput.setText("");
+            
             //Enable Start fight button
             btnStart.setEnabled(true);
+            
+            //Enable Player name fields
+            txtPlayer1.setEditable(true);
+            txtPlayer2.setEditable(true);
+            txtPlayer3.setEditable(true);
+            txtPlayer4.setEditable(true);
+            
+            //Reset health Color
+            txtPlayer1Health.setBackground(Color.white);
+            txtPlayer2Health.setBackground(Color.white);
+            txtPlayer3Health.setBackground(Color.white);
+            txtPlayer4Health.setBackground(Color.white);
+            
 
         } 
         else 
@@ -504,11 +491,10 @@ public class NewGUI extends javax.swing.JFrame {
     //Carlos
     public void loser()
     {
-               JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
-               setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-           
+        JOptionPane.showMessageDialog(null, "Everyone has died, YOU LOSE!");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+    //Chris
     public void getHelp() throws FileNotFoundException, IOException
     {
         InputStream is = new FileInputStream("manual.txt");
